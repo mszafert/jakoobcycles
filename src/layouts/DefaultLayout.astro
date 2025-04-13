@@ -1,3 +1,9 @@
+---
+import bgImg from '../assets/img/bg-home-01.webp';
+import PageHeader from '../components/PageHeader.astro';
+import PageFooter from '../components/PageFooter.astro';
+---
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -8,6 +14,15 @@
     <title>Astro Basics</title>
   </head>
   <body>
+    <PageHeader />
     <slot />
+    <PageFooter />
   </body>
 </html>
+
+<style define:vars={{ bgImg: `url(${bgImg.src})` }}>
+  body {
+    @apply bg-(black center cover no-repeat) text-zinc-400 h-screen;
+    background-image: var(--bgImg);
+  }
+</style>

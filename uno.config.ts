@@ -1,6 +1,6 @@
-import { defineConfig, presetWind4, transformerDirectives } from 'unocss';
+import { defineConfig, presetWind3, transformerDirectives, transformerVariantGroup } from 'unocss';
 
 export default defineConfig({
-  presets: [presetWind4()],
-  transformers: [transformerDirectives()],
+  presets: [presetWind3()],
+  transformers: [transformerDirectives(), transformerVariantGroup()],
 });

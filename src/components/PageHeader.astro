@@ -1,0 +1,22 @@
+---
+import LogoJakoobcycles from './LogoJakoobcycles.astro';
+
+const siteNav = [
+  { name: 'Strona główna', href: '/' },
+  { name: 'Serwis', href: '/serwis' },
+  { name: 'Kontakt', href: '/kontakt' },
+];
+---
+
+<header class="site-menu">
+  <a href="/"><LogoJakoobcycles /></a>
+  <nav class="site-menu">
+    <ul>
+      {siteNav.map(i => (
+        <li>
+          <a href={i.href}>{i.name}</a>
+        </li>
+      ))}
+    </ul>
+  </nav>
+</header>

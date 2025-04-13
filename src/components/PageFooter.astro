@@ -1,0 +1,30 @@
+---
+const footerNav = [
+  { name: 'Regulamin', href: '/regulamin' },
+  { name: 'Gwarancja Cannondale', href: '/gwarancja-cannondale' },
+  { name: 'Tabela rozmiarów', href: '/tabela-rozmiarow' },
+  { name: 'Polityka prywatności', href: '/polityka-prywatnosci' },
+  { name: 'Ciastka', href: '/ciastka' },
+];
+const socialNav = [
+  { name: 'Instagram', href: 'https://www.instagram.com/jakoobcycles', icon: 'instagram' },
+  { name: 'Facebook', href: 'https://www.facebook.com/PracowniaRowerowaJakoobcycles', icon: 'facebook' },
+  { name: 'Flickr', href: 'https://www.flickr.com/photos/94791513@N04', icon: 'youtube' },
+  { name: 'Google Maps', href: 'https://goo.gl/maps/s59TDhmZvhdZNPjB6', icon: 'google-maps' },
+];
+const currentYear = new Date().getFullYear();
+---
+
+<footer>
+  <nav class="footer-menu">
+    <ul>
+      {footerNav.map(i => (<li><a href={i.href}>{i.name}</a></li>))}
+    </ul>
+  </nav>
+  <nav class="social-menu">
+    <ul>
+      {socialNav.map(i => (<li><a href={i.href}>{i.icon}</a></li>))}
+    </ul>
+  </nav>
+  <p>Copyright © 2012 - {currentYear} Jakoobcycles</p>
+</footer>
