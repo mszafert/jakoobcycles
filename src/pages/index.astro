@@ -3,8 +3,37 @@ import DefaultLayout from '../layouts/DefaultLayout.astro';
 ---
 
 <DefaultLayout>
-  <h1>Jesteśmy z Wami już przeszło <span>20</span> lat</h1>
-  <p>Serwisujemy, personalizujemy, lakierujemy i składamy rowery z carbonu, stali czy aluminium. Montujemy i konserwujemy systemy elektroniczne oraz hydrauliczne.</p>
-  <p>Jako jeduna firma w kraju zajmujemy się kompleksową renowacją rowerów dlatego tak bardzo zwracamy uwagę na dokładność i dbałość o szczegóły...</p>
-  <p><a href="#">więcej...</a></p>
+  <div class="mt-20 max-w-[600px]">
+    <h1>Jesteśmy z Wami już przeszło <span>20</span> lat</h1>
+    <hr />
+    <p>Serwisujemy, personalizujemy, lakierujemy i składamy rowery z carbonu, stali czy aluminium. Montujemy i konserwujemy systemy elektroniczne oraz hydrauliczne.</p>
+    <p>Jako jeduna firma w kraju zajmujemy się kompleksową renowacją rowerów dlatego tak bardzo zwracamy uwagę na dokładność i dbałość o szczegóły...</p>
+    <p><a href="#">więcej...</a></p>
+  </div>
 </DefaultLayout>
+
+<style>
+  h1 {
+    @apply font-bold mb-5 text-(6xl white);
+  }
+
+  h1 span {
+    @apply text-brand;
+  }
+
+  hr {
+    @apply bg-white/25 border-0 h-px max-w1/3 my-8;
+  }
+
+  p {
+    @apply font-light mb-5 text-2xl;
+  }
+
+  a {
+    @apply text-white/50 transition-all duration-300 underline;
+  }
+
+  a:hover {
+    @apply text-white;
+  }
+</style>

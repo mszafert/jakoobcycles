@@ -15,16 +15,32 @@ const socialNav = [
 const currentYear = new Date().getFullYear();
 ---
 
-<footer>
-  <nav class="footer-menu">
-    <ul>
-      {footerNav.map(i => (<li><a href={i.href}>{i.name}</a></li>))}
-    </ul>
-  </nav>
-  <nav class="social-menu">
-    <ul>
-      {socialNav.map(i => (<li><a href={i.href}>{i.icon}</a></li>))}
-    </ul>
-  </nav>
-  <p>Copyright © 2012 - {currentYear} Jakoobcycles</p>
+<footer class="px-10 pb-20">
+  <div class="font-light max-w-[1620px] mx-auto">
+    <nav class="footer-menu">
+      <ul class="border-b-1 border-white/10 flex pb-2 text-lg">
+        {footerNav.map((item, i, l) => (
+          <>
+            <li><a href={item.href}>{item.name}</a></li>
+            {i !== l.length - 1 && <span class="px-4">|</span>}
+          </>
+        ))}
+      </ul>
+    </nav>
+    <!-- <nav class="social-menu">
+      <ul>
+        {socialNav.map(i => (<li><a href={i.href}>{i.icon}</a></li>))}
+      </ul>
+    </nav> -->
+    <p class="pt-2">Copyright © 2012 - {currentYear} Jakoobcycles</p>
+  </div>
 </footer>
+
+<style>
+  a {
+    @apply transition-all duration-300;
+  }
+  a:hover {
+    @apply text-white;
+  }
+</style>

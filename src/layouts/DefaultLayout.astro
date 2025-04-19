@@ -14,15 +14,21 @@ import PageFooter from '../components/PageFooter.astro';
     <title>Astro Basics</title>
   </head>
   <body>
-    <PageHeader />
-    <slot />
-    <PageFooter />
+    <div class="content">
+      <PageHeader />
+      <main class="flex-1 p-10">
+        <div class="max-w-[1620px] mx-auto">
+          <slot />
+        </div>
+      </main>
+      <PageFooter />
+    </div>
   </body>
 </html>
 
 <style define:vars={{ bgImg: `url(${bgImg.src})` }}>
-  body {
-    @apply bg-(black center cover no-repeat) text-zinc-400 h-screen;
+  .content {
+    @apply bg-(black center cover no-repeat) flex flex-col gap-10 h-screen overflow-hidden text-zinc-400;
     background-image: var(--bgImg);
   }
 </style>

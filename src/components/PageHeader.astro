@@ -2,21 +2,34 @@
 import LogoJakoobcycles from './LogoJakoobcycles.astro';
 
 const siteNav = [
-  { name: 'Strona główna', href: '/' },
+  { name: 'Jakoobcycles', href: '/' },
   { name: 'Serwis', href: '/serwis' },
+  // { name: 'Cennik', href: '/cennik' },
   { name: 'Kontakt', href: '/kontakt' },
 ];
 ---
 
-<header class="site-menu">
-  <a href="/"><LogoJakoobcycles /></a>
-  <nav class="site-menu">
-    <ul>
-      {siteNav.map(i => (
-        <li>
-          <a href={i.href}>{i.name}</a>
-        </li>
-      ))}
-    </ul>
-  </nav>
+<header class="px-10">
+  <div class="flex items-center justify-between max-w-[1620px] pt-12 mx-auto">
+    <a href="/"><LogoJakoobcycles /></a>
+    <nav class="site-menu">
+      <ul class="flex gap-10">
+        {siteNav.map(i => (<li><a href={i.href}>{i.name}</a></li>))}
+      </ul>
+    </nav>
+  </div>
 </header>
+
+<style>
+  li a {
+    @apply font-light text-xl text-zinc-400;
+  }
+
+  li a:hover {
+    @apply text-white;
+  }
+
+  li:last-child a {
+    @apply bg-zinc-400 px-8 py-2 rounded font-normal text-black;
+  }
+</style>
