@@ -1,10 +1,10 @@
 ---
 const footerNav = [
-  { name: 'Regulamin', href: '/regulamin' },
-  { name: 'Gwarancja Cannondale', href: '/gwarancja-cannondale' },
-  { name: 'Tabela rozmiarów', href: '/tabela-rozmiarow' },
-  { name: 'Polityka prywatności', href: '/polityka-prywatnosci' },
-  { name: 'Ciastka', href: '/ciastka' },
+  { name: 'Regulamin', href: '#' },
+  { name: 'Gwarancja Cannondale', href: '#' },
+  { name: 'Tabela rozmiarów', href: '#' },
+  { name: 'Polityka prywatności', href: '#' },
+  { name: 'Ciastka', href: '#' },
 ];
 const socialNav = [
   { name: 'Instagram', href: 'https://www.instagram.com/jakoobcycles', icon: 'instagram' },
@@ -18,12 +18,9 @@ const currentYear = new Date().getFullYear();
 <footer class="px-10 pb-20">
   <div class="font-light max-w-[1620px] mx-auto">
     <nav class="footer-menu">
-      <ul class="border-b-1 border-white/10 flex pb-2 text-lg">
-        {footerNav.map((item, i, l) => (
-          <>
-            <li><a href={item.href}>{item.name}</a></li>
-            {i !== l.length - 1 && <span class="px-4">|</span>}
-          </>
+      <ul class="flex text-lg">
+        {footerNav.map(item => (
+          <li><a href={item.href}>{item.name}</a></li>
         ))}
       </ul>
     </nav>
@@ -37,9 +34,22 @@ const currentYear = new Date().getFullYear();
 </footer>
 
 <style>
+  .footer-menu {
+    @apply border-b-1 border-white/10 pb-3;
+  }
+
+  .footer-menu li {
+    @apply border-l-1 border-white/25 line-height-none ml-3 pl-3;
+  }
+
+  .footer-menu li:first-child {
+    @apply border-l-0 ml-0 pl-0;
+  }
+
   a {
     @apply transition-all duration-300;
   }
+
   a:hover {
     @apply text-white;
   }
