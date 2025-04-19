@@ -1,12 +1,32 @@
 ---
+import { ClientRouter } from 'astro:transitions';
+import type { ImageMetadata } from 'astro';
+import PageFooter from '../components/PageFooter.astro';
+import PageHeader from '../components/PageHeader.astro';
+
 interface Props {
   title?: string;
+  bgImgName?: string;
 }
 
-const { title = "Jakoobcycles" } = Astro.props;
-import bgImg from '../assets/img/bg-home-01.webp';
-import PageHeader from '../components/PageHeader.astro';
-import PageFooter from '../components/PageFooter.astro';
+const {
+  bgImgName = 'bg-default.webp',
+  title = 'Jakoobcycles'
+} = Astro.props;
+
+const getPageBgImg = (imgName: string) => {
+  const images = import.meta.glob<{default: ImageMetadata}>('../assets/img/*.webp', {
+    eager: true,
+  });
+
+  const image = images[`../assets/img/${imgName}`].default;
+
+  if (!image) {
+    throw new Error(`Image ${imgName} not found`);
+  }
+
+  return image;
+};
 ---
 
 <!doctype html>
@@ -17,6 +37,7 @@ import PageFooter from '../components/PageFooter.astro';
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
+    <ClientRouter />
   </head>
   <body>
     <div class="content">
@@ -31,7 +52,7 @@ import PageFooter from '../components/PageFooter.astro';
   </body>
 </html>
 
-<style define:vars={{ bgImg: `url(${bgImg.src})` }}>
+<style define:vars={{ bgImg: `url(${getPageBgImg(bgImgName).src})` }}>
   .content {
     @apply bg-(black center cover no-repeat) flex flex-col gap-10 h-screen overflow-hidden text-zinc-400;
     background-image: var(--bgImg);
