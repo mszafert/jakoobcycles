@@ -7,22 +7,36 @@ const siteNav = [
   // { name: 'Cennik', href: '/cennik' },
   { name: 'Kontakt', href: '/kontakt' },
 ];
+
+const { pathname } = Astro.url;
 ---
 
 <header class="px-10">
   <div class="flex items-center justify-between max-w-[1620px] pt-12 mx-auto">
     <a href="/"><LogoJakoobcycles /></a>
-    <nav class="site-menu">
+    <nav>
       <ul class="flex gap-10">
-        {siteNav.map(i => (<li><a href={i.href}>{i.name}</a></li>))}
+        {siteNav.map(i => (
+          <li class={pathname === i.href ? 'active' : ''}>
+            <a href={i.href}>{i.name}</a>
+          </li>
+        ))}
       </ul>
     </nav>
   </div>
 </header>
 
 <style>
+  .active {
+    @apply before:(content-[''] absolute h-px bg-brand w-1/4 bottom-0) relative;
+  }
+
+  .active a {
+    @apply text-white;
+  }
+  
   li a {
-    @apply font-light text-xl text-zinc-400;
+    @apply font-light text-xl text-zinc-400 transition-all duration-300;
   }
 
   li a:hover {
