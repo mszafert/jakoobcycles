@@ -4,11 +4,12 @@ import LogoJakoobcycles from './LogoJakoobcycles.astro';
 const siteNav = [
   { name: 'Jakoobcycles', href: '/' },
   { name: 'Serwis', href: '/serwis' },
-  // { name: 'Cennik', href: '/cennik' },
+  // { name: 'Cennik', href: 'cennik' },
   { name: 'Kontakt', href: '/kontakt' },
 ];
 
 const { pathname } = Astro.url;
+const currentPath = pathname.replace(/^(\/[^\/]*)\/?$/, '$1');
 ---
 
 <header class="px-10">
@@ -17,7 +18,7 @@ const { pathname } = Astro.url;
     <nav>
       <ul class="flex gap-10">
         {siteNav.map(i => (
-          <li class={pathname === i.href ? 'active' : ''}>
+          <li class={currentPath === i.href ? 'active' : ''}>
             <a href={i.href}>{i.name}</a>
           </li>
         ))}
