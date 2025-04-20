@@ -1,8 +1,42 @@
 ---
 import DefaultLayout from '../layouts/DefaultLayout.astro';
+import img01 from '../assets/img/service-01.webp';
+import img02 from '../assets/img/service-02.webp';
+import img03 from '../assets/img/service-03.webp';
+import { Picture } from 'astro:assets';
 ---
 
 <DefaultLayout bgImgName='bg-service.webp' title="Jakoobcycles - Serwis rowerowy">
-  <div class="mt-20 max-w-[600px]">
+  <div class="justify-items-end">
+    <div class="max-w-1/2">
+      <p>
+        Jakoobcycles to nie jest zwyczajny serwis. Czujemy się pracownią gdzie budowa rowerów 
+        to sztuka. Blisko trzydziestoletnie doświadczenie pozwala nam na odważne działanie w 
+        tworzeniu nowych projektów oraz podejmowaniu wyzwań serwisowych. Podążając wraz z trendami,
+        nowościami technicznymi staramy się sprostać Waszym oczekiwaniom - rowery stają się coraz 
+        szybsze i bardziej komfortowe zaś ich obsługa wymaga serwisu na najwyższym poziomie. 
+        Praca ze sportowcami, zawodnikami oraz czynny udział z sukcesami w zawodach kolarskich 
+        pomagają w pracy z rowerami - diagnoza - decyzje - serwis - rower gotowy do jazdy :)
+      </p>
+      <p class="flex gap-5">
+        <a href=""><Picture src={img01} width={img01.width/2} alt="Serwis rowerowy 1" /></a>
+        <a href=""><Picture src={img02} width={img01.width/2} alt="Serwis rowerowy 2" /></a>
+        <a href=""><Picture src={img03} width={img01.width/2} alt="Serwis rowerowy 3" /></a>
+      </p>
+      <p>
+        Z szacunkiem podejmujemy się również projektów retro, są bardzo wymagające i ciekawe
+        a nierzadko ich historia dodaje blichtru, pozwalaja poznać zwyczaje kolarskie z przeszłosci.
+      </p>
+    </div>
   </div>
 </DefaultLayout>
+
+<style>
+  p {
+    @apply font-light mb-5 text-lg;
+  }
+
+  img {
+    @apply rounded-md border border-white/10 shadow-lg;
+  }
+</style>
