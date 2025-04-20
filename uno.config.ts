@@ -10,7 +10,7 @@ export default defineConfig({
   theme: {
     colors: {
       brand: '#8bbf3e',
-    }
+    },
   },
   transformers: [transformerDirectives(), transformerVariantGroup()],
 });

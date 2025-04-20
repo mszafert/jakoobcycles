@@ -1,4 +1,9 @@
 ---
+import FacebookIcon from './FacebookIcon.astro';
+import FlickrIcon from './FlickrIcon.astro';
+import GoogleMapIcon from './GoogleMapIcon.astro';
+import InstagramIcon from './InstagramIcon.astro';
+
 const footerNav = [
   { name: 'Regulamin', href: '#' },
   { name: 'Gwarancja Cannondale', href: '#' },
@@ -6,36 +11,53 @@ const footerNav = [
   { name: 'Polityka prywatności', href: '#' },
   { name: 'Ciastka', href: '#' },
 ];
-const socialNav = [
-  { name: 'Instagram', href: 'https://www.instagram.com/jakoobcycles', icon: 'instagram' },
-  { name: 'Facebook', href: 'https://www.facebook.com/PracowniaRowerowaJakoobcycles', icon: 'facebook' },
-  { name: 'Flickr', href: 'https://www.flickr.com/photos/94791513@N04', icon: 'youtube' },
-  { name: 'Google Maps', href: 'https://goo.gl/maps/s59TDhmZvhdZNPjB6', icon: 'google-maps' },
-];
 const currentYear = new Date().getFullYear();
 ---
 
 <footer class="px-10 pb-20">
-  <div class="font-light max-w-[1620px] mx-auto">
+  <div class="flex gap-5 font-light max-w-[1620px] mx-auto">
     <nav class="footer-menu">
-      <ul class="flex text-lg">
+      <ul>
         {footerNav.map(item => (
           <li><a href={item.href}>{item.name}</a></li>
         ))}
       </ul>
+      <p class="pt-2">Copyright &copy; 2012 - {currentYear} Jakoobcycles</p>
     </nav>
-    <!-- <nav class="social-menu">
-      <ul>
-        {socialNav.map(i => (<li><a href={i.href}>{i.icon}</a></li>))}
+    <nav class="social-menu">
+      <ul class="flex gap-2">
+        <li>
+          <a href="https://www.instagram.com/jakoobcycles" title="Instagram" class="before:content-['Instagram'] before:bottom-[55px] before:right--4">
+            <InstagramIcon />
+          </a>
+        </li>
+        <li>
+          <a href="https://www.facebook.com/PracowniaRowerowaJakoobcycles" class="before:content-['Facebook'] before:bottom-[53px] before:right--4" title="Facebook">
+            <FacebookIcon />
+          </a>
+        </li>
+        <li>
+          <a href="https://www.flickr.com/photos/94791513@N04" class="before:content-['Flickr'] before:bottom-[38px] before:right--1" title="Flickr">
+            <FlickrIcon />
+          </a>
+        </li>
+        <li>
+          <a href="https://goo.gl/maps/s59TDhmZvhdZNPjB6" class="before:content-['Google&nbsp;Map'] before:bottom-[62px] before:right--7" title="Google Map">
+            <GoogleMapIcon />
+          </a>
+        </li>
       </ul>
-    </nav> -->
-    <p class="pt-2">Copyright © 2012 - {currentYear} Jakoobcycles</p>
+    </nav>
   </div>
 </footer>
 
 <style>
   .footer-menu {
-    @apply border-b-1 border-white/10 pb-3;
+    @apply flex-1;
+  }
+
+  .footer-menu ul {
+    @apply border-b-1 border-white/10 flex pb-3 text-lg;
   }
 
   .footer-menu li {
@@ -44,6 +66,18 @@ const currentYear = new Date().getFullYear();
 
   .footer-menu li:first-child {
     @apply border-l-0 ml-0 pl-0;
+  }
+
+  .social-menu {
+    @apply pt-4;
+  }
+
+  .social-menu a {
+    @apply before:(absolute block rotate--90 opacity-0) block w-[24px] h-[24px] relative opacity-15;
+  }
+
+  .social-menu a:hover {
+    @apply before:opacity-50 opacity-100;
   }
 
   a {
