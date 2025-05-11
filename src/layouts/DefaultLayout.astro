@@ -54,7 +54,7 @@ const getPageBgImg = (imgName: string) => {
 
 <style define:vars={{ bgImg: `url(${getPageBgImg(bgImgName).src})` }}>
   .content {
-    @apply bg-(black center cover no-repeat) flex flex-col gap-10 h-screen overflow-hidden text-zinc-400;
+    @apply bg-(black center cover no-repeat) flex flex-col font-lato gap-10 h-screen overflow-hidden text-zinc-400;
     background-image: var(--bgImg);
   }
 </style>

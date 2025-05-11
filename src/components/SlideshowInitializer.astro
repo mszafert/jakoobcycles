@@ -1,0 +1,26 @@
+---
+---
+
+<script>
+  const initSlideshow = async () => {
+    const { Slideshow } = await import('./Slideshow.client.ts');
+    try {
+      new Slideshow('slideshow', 'slideshow-wrapper', 'page');
+    } catch (error) {
+      console.error('Error initializing slideshow:', error);
+    }
+  };
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', () => {
+      initSlideshow();
+    });
+  } else {
+    initSlideshow();
+  }
+
+  // Reinicjalizacja przy nawigacji Astro
+  document.addEventListener('astro:after-swap', () => {
+    initSlideshow();
+  });
+</script>

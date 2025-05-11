@@ -1,0 +1,104 @@
+---
+import DefaultLayout from '../layouts/DefaultLayout.astro';
+import SlideshowInitializer from '../components/SlideshowInitializer.astro';
+---
+
+<DefaultLayout bgImgName="bg-pricelist.webp" title="Jakoobcycles - Cennik usług rowerowych">
+  <div class="flex gap-20" id="page">
+    <div class="w-1/4">
+      <div class="text-right font-light">
+        <h1>Wybierz odpowiedni pakiet serwisowy</h1>
+        <p>Podane ceny nie zawierają części</p>
+      </div>
+    </div>
+    <div class="h-full w-3/4">
+      <div class="h-full overflow-hidden" id="slideshow">
+        <div class="flex gap-10 cursor-grab active:cursor-grabbing" id="slideshow-wrapper">
+          <div class="price-card">
+            <h2><span>Serwis Standard</span> - 490 zł</h2>
+            <hr />
+            <p>Serwis roweru obejmuje:</p>
+            <ul>
+              <li>dokładne umycie i nasmarowanie roweru przy użyciu najwyższej jakości środków pielęgnacyjnych,</li>
+              <li>regulacje wszystkich podzespołów,</li>
+              <li>kontrolę wraz z kasowaniem luzów w łożyskach suportu, sterów i piast,</li>
+              <li>Sprawdzenie połączeń śrubowych z użyciem klucza dynamometrycznego,</li>
+              <li>Podcentrowanie kół,</li>
+              <li>rower jest testowany podczas próby w warunkach terenowych.</li>
+            </ul>
+          </div>
+          <div class="price-card">
+            <h2><span>Serwis Premium</span> - 690 zł</h2>
+            <hr />
+            <p>Serwis ten polecany jest dla osób pokonujacych spora ilość kilometrów w ciagu miesiąca, w tym przeglądzie główny nacisk stawiamy na podwyzszenie możliwosci utrzymania wyższchych prędkosci podczas treningów oraz precyzję działania.</p>
+            <ul>
+              <li>dokładne umycie i nasmarowanie roweru przy użyciu najwyższej jakości środków pielęgnacyjnych, </li>
+              <li>regulacje wszystkich podzespołów,</li>
+              <li>kontrolę wraz z kasowaniem luzów w łożyskach suportu, sterów i piast,</li>
+              <li>Sprawdzenie połączeń śrubowych z użyciem klucza dynamometrycznego,</li>
+              <li>Podcentrowanie kół,</li>
+              <li>rower jest testowany podczas próby w warunkach terenowych.</li>
+            </ul>
+          </div>
+          <div class="price-card">
+            <h2><span>Serwis Pro</span> - 990 zł</h2>
+            <hr />
+            <p>Serwis ten polega na kompletnym, dużym przeglądzie oraz przywrócenia roweru do stanu najbliższemu, kiedy był nowy. Pierwszy krok to kompleksowe mycie. Poszczególne części roweru sa demontowane, rozbierane, diagnozowane. Ponowny montaż odbywa się za pomoca oryginalnych podzespołów, połączenia śrubowe są wnikliwie sprawdzane pod kątem wytrzymałości oraz wypracowania. Po serwisie rower przechodzi podwójną kontrole jakości serwisu.</p>
+            <p>Bike spa wraz z woskowaniem napędu: 200 zł</p>
+            <p>Mycie roweru, odtłuszczanie napędu oraz smarowanie łańcucha woskiem ceramicznym.</p>
+            <p>Nanoszenie powłoki ceramicznej - 850 zł</p>
+            <p>Lakier ram rowerowych zabezpieczany jest powłoką która Zapewnia do 24 miesięcy ochrony i może być nakładana na wszystkie rodzaje wykończeń roweru, w tym folie chroniące lakier, jest to trwała, bardzo gładka, warstwa optycznie przezroczystej powłoki, która uwydatnia kolor i tworzy efekt lakieru oblanego szkłem, krople wody sływaja szybko i z ogromna łatwością, Powłoka ceramiczna jest śliska, dzięki czemu czyszczenie jest bardzo proste.</p>
+            <p>Roboczo godzina mechanika - 240 zł</p>
+            <p>W przypadku tego serwisu mechanik rozpatruje prawdopodobieństwo przeprowadzenia serwisu w określonym czasie.</p>
+          </div>
+        </div>
+        <div class="flex justify-center gap-2 mt-4" id="slideshow-dots"></div>
+      </div>
+    </div>
+  </div>
+</DefaultLayout>
+
+<style>
+  h1 {
+    @apply font-(oswald bold) mb-5 mt-20 text-(5xl white);
+  }
+
+  h2 {
+    @apply font-medium text-xl;
+  }
+
+  h2 span {
+    @apply text-white;
+  }
+
+  hr {
+    @apply bg-white/25 border-0 h-px max-w1/3 my-4;
+  }
+
+  .price-card {
+    @apply bg-white/2 border-(1 white/10) p-5 rounded-md;
+  }
+
+  .price-card:hover {
+    @apply bg-white/5;
+  }
+
+  .price-card ul {
+    @apply list-disc pl-5;
+  }
+
+  .price-card p,
+  .price-card li {
+    @apply font-light line-height-tight mb-2 text-size-lg;
+  }
+
+  .dot {
+    @apply w-2 h-2 rounded-full bg-white/20 transition-colors duration-200 cursor-pointer;
+  }
+
+  .dot.active {
+    @apply bg-white;
+  }
+</style>
+
+<SlideshowInitializer />
